@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/29 16:26:38 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/29 15:11:53 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/29 16:26:59 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,30 @@
 #include <stdio.h>
 */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_numeric(char *str)
 {
 	int	index;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		if (!(str[index] >= '0' && str[index] <= '9'))
+		{
+			return (0);
+		}
 		index++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (1);
 }
 
 /*
 int	main(void)
 {
-	unsigned int	n;
-	char	og[] = "klk mmgv";
-	char	dest[50];
-
-	n = 5;
-
-	ft_strncpy(dest,og,5);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	char str1[] = "000 123";
+	char str2[] = "123456";
+	char str3[] = "000099999";
+	printf("%d\n",ft_str_is_numeric(str1));
+	printf("%d\n",ft_str_is_numeric(str2));
+	printf("%d\n",ft_str_is_numeric(str3));
 }
 */

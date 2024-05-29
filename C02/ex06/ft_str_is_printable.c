@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_printable.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/29 16:26:38 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/29 15:45:14 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/29 16:26:52 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,31 @@
 #include <stdio.h>
 */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_printable(char *str)
 {
 	int	index;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		if (!(str[index] >= '!' && str[index] <= '~'))
+		{
+			return (0);
+		}
 		index++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (1);
 }
 
 /*
 int	main(void)
 {
-	unsigned int	n;
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char	str1[] = "!!!!!!!!";
+	char	str2[] = "~~~~~~~~ ";
+	char	str3[] = " dsdfsd ";
 
-	n = 5;
-
-	ft_strncpy(dest,og,5);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	printf("%d\n",ft_str_is_printable(str1));
+	printf("%d\n",ft_str_is_printable(str2));
+	printf("%d\n",ft_str_is_printable(str3));
 }
 */

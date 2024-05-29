@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/29 16:26:38 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/29 15:45:14 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/29 16:26:46 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,31 @@
 #include <stdio.h>
 */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strlowcase(char *str)
 {
 	int	index;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		if (str[index] >= 'A' && str[index] <= 'Z')
+		{
+			str[index] += 32;
+		}
 		index++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (str);
 }
 
 /*
 int	main(void)
 {
-	unsigned int	n;
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char	str1[] = "!A!!C!V!!";
+	char	str2[] = "~~~f~~dAd t~~~ ";
+	char	str3[] = " sdfFDS ";
 
-	n = 5;
-
-	ft_strncpy(dest,og,5);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	printf("%s\n",ft_strlowcase(str1));
+	printf("%s\n",ft_strlowcase(str2));
+	printf("%s\n",ft_strlowcase(str3));
 }
 */

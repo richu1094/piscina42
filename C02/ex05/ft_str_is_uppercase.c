@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_str_is_uppercase.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/29 16:26:38 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/29 15:40:14 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/29 16:26:55 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,31 @@
 #include <stdio.h>
 */
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+int	ft_str_is_uppercase(char *str)
 {
 	int	index;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		if (!(str[index] >= 'A' && str[index] <= 'Z'))
+		{
+			return (0);
+		}
 		index++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (1);
 }
 
 /*
 int	main(void)
 {
-	unsigned int	n;
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char	str1[] = "AAAZAZAZAZ";
+	char	str2[] = "AAAAZZZZA ";
+	char	str3[] = "aaaazzzz";
 
-	n = 5;
-
-	ft_strncpy(dest,og,5);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	printf("%d\n",ft_str_is_uppercase(str1));
+	printf("%d\n",ft_str_is_uppercase(str2));
+	printf("%d\n",ft_str_is_uppercase(str3));
 }
 */

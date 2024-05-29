@@ -1,49 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncpy.c                                       :+:      :+:    :+:   */
+/*   ft_strcapitalize.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/29 16:26:38 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/29 15:45:14 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/29 18:22:14 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include <stdio.h>
-*/
 
-char	*ft_strncpy(char *dest, char *src, unsigned int n)
+char	*ft_strcapitalize(char *str)
 {
 	int	index;
+	int start;
 
 	index = 0;
-	while (src[index] != '\0' && index < n)
+	start = 1;
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		if ((start == 1) && (str[index] >= 'a' && str[index] <= 'z'))
+		{
+			str[index] -= 32;
+			start = 0;
+		}
+		else if(!((str[index] >= 'a' && str[index] <= 'z'))){
+			start = 1;
+		}
 		index++;
 	}
-	while (index < n)
-	{
-		dest[index] = '\0';
-		index++;
-	}
-	return (dest);
+	return (str);
 }
 
-/*
 int	main(void)
 {
-	unsigned int	n;
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char	str1[] = "salut, comment tu vas ? 42mots quarante-deux; cinquante+et+un";
 
-	n = 5;
-
-	ft_strncpy(dest,og,5);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	printf("%s\n",ft_strcapitalize(str1));
 }
-*/
