@@ -6,7 +6,7 @@
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 11:14:24 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/30 13:44:01 by rcenteno         ###   ########.fr       */
+/*   Updated: 2024/05/31 11:03:09 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,37 +30,33 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 {
 	unsigned int	size_dest;
 	unsigned int	size_src;
-	int				index;
+	unsigned int	index;
 
 	size_dest = ft_strlen(dest);
 	size_src = ft_strlen(src);
 	index = 0;
-	if (size < size_dest + 1)
-	{
+	if (size <= size_dest)
 		return (size_src + size);
-	}
-	else
+	while (src[index] != '\0' && size_dest + index < size - 1)
 	{
-		while (src[index] != '\0')
-		{
-			dest[size_dest] = src[index];
-			index++;
-			size_dest++;
-		}
-		dest[size_dest] = '\0';
-		return (size_dest);
+		dest[size_dest + index] = src[index];
+		index++;
 	}
+	if (size_dest + index < size)
+	{
+		dest[size_dest + index] = '\0';
+	}
+	return (size_dest + size_src);
 }
 
 /*
 int	main(void)
 {
-	char	dest[20] = "Hola ";
+	char	dest[10] = "Hola ";
 	char	src[] = "mundo!";
 	int		size;
 
-	size = 20;
-	size = 20;
+	size = 10;
 	printf("%d", ft_strlcat(dest, src, size));
 	printf("\n");
 	printf("%s", dest);

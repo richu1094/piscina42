@@ -27,14 +27,14 @@ int	ft_strcmp(char *s1, char *s2)
 		}
 		index++;
 	}
-	return (0);
+	return (s1[index] - s2[index]);
 }
 
 /*
 int	main(void)
 {
-	char s1[] = "Hola mundo";
-	char s2[] = "Hola mundz";
+	char s1[] = "H";
+	char s2[] = "Hola mundo";
 	
 	printf("%d",ft_strcmp(s1,s2));
 

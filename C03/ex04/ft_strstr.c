@@ -6,13 +6,13 @@
 /*   By: rcenteno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:49:18 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/30 11:13:12 by rcenteno         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:42:12 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
+
 #include <stdio.h>
-*/
+
 
 char	*ft_strstr(char *str, char *to_find)
 {
@@ -36,15 +36,14 @@ char	*ft_strstr(char *str, char *to_find)
 		}
 		str++;
 	}
-	return (NULL);
+	return (0);
 }
 
-/*
+
 int main(void)
 {
-	char str[] = "Hola Mundo CEBOLLA";
-	char to_find[] = "Mundo";
+	char str[] = "dasdas";
+	char to_find[] = "ñ";
 	
 	printf("%s",ft_strstr(str,to_find));
 }
-*/

@@ -1,57 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_print_memory.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/29 18:22:33 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/06/03 15:38:24 by rcenteno         ###   ########.fr       */
+/*   Updated: 2024/06/03 17:51:16 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include <stdio.h>
-*/
+#include <unistd.h>
 
-int	ft_strlen(char *str)
+void ft_putchar(char c)
 {
-	int	index;
-
-	index = 0;
-	while (str[index] != '\0')
-	{
-		index++;
-	}
-	return (index);
+    write(1, &c, 1);
 }
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int ft_strlen(char *addr)
 {
-	unsigned int	index;
-	unsigned int	src_length;
+    int index;
 
-	index = 0;
-	src_length = ft_strlen(src);
-	if (size != 0)
-	{
-		while (src[index] != '\0' && index < size - 1)
-		{
-			dest[index] = src[index];
-			index++;
-		}
-		dest[index] = '\0';
-	}
-	return (src_length);
+    index = 0;
+    while(addr[index] != '\0')
+    {
+        index++;
+    }
+    return (index);
 }
 
-/*
-int	main(void)
+void *ft_print_memory(void *addr, unsigned int size)
 {
-	char	dest[3] = "";
-	char	src[] = "Mundo";
-
-	printf("%d\n",ft_strlcpy(dest,src,3));
-	printf("%s\n", dest);
+    if(size == 0)
+    {
+        
+    }
+    else
+    {
+        write(1, (void *)addr, 16);
+    }
 }
-*/
+
+int main(void)
+{
+    char str[] = "Hola mundo";
+
+    ft_print_memory(str,16);   
+}

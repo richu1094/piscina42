@@ -6,7 +6,7 @@
 /*   By: rcenteno <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/30 10:39:50 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/30 10:53:41 by rcenteno         ###   ########.fr       */
+/*   Updated: 2024/05/31 10:43:41 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,5 @@ int main(void)
 	char dest[] = "Hola ";
 	
 	printf("%s",ft_strcat(dest,src));
-
 }
 */

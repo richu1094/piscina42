@@ -1,42 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_print_params.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/31 10:52:17 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/31 12:12:05 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/05/31 13:09:32 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include <stdio.h>
-*/
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+void ft_putchar(char c)
 {
-	int	index;
-
-	index = 0;
-	while (src[index] != '\0')
-	{
-		dest[index] = src[index];
-		index++;
-	}
-	dest[index] = '\0';
-	return (dest);
+    write(1,&c,1);
 }
 
-/*
-int	main(void)
+int main(int argc, char *argv[])
 {
-	char	og[] = "klk mmgv";
-	char	dest[50];
+    int index;
 
-	ft_strcpy(dest,og);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+    index = 0;
+    while(index < argc)
+    {
+        while(*argv[index] != '\0')
+        {
+        ft_putchar(*argv[index]);
+        argv[index]++;
+        }
+        ft_putchar('\n');
+        index++;
+    }
+    return (0);
 }
-*/

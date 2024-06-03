@@ -16,10 +16,10 @@
 
 int	ft_strncmp(char *s1, char *s2, unsigned int n)
 {
-	int	index;
+	unsigned int	index;
 
 	index = 0;
-	while (index < n && (s1[index] != '\0' && s2[index] != '\0'))
+	while (index < n && (s1[index] != '\0' || s2[index] != '\0'))
 	{
 		if (s1[index] != s2[index])
 		{
@@ -33,13 +33,12 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 /*
 int main(void)
 {
-	char s1[] = "klk mmgv";
+	char s1[] = "";
 	char s2[] = "klk mmgv";
 	unsigned int n;
 
 	n = 5;
 	
 	printf("%d",ft_strncmp(s1,s2,n));
-
 }
 */

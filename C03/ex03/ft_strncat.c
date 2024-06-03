@@ -16,8 +16,8 @@
 
 char	*ft_strncat(char *dest, char *src, unsigned int nb)
 {
-	int	index;
-	int	at;
+	unsigned int	index;
+	unsigned int	at;
 
 	index = 0;
 	while (dest[index] != '\0')

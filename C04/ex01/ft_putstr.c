@@ -1,42 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/31 10:52:17 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/30 14:02:54 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/06/03 11:42:36 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
-#include <stdio.h>
-*/
+#include <unistd.h>
 
-char	*ft_strcpy(char *dest, char *src)
+void	ft_putstr(char *str)
 {
 	int	index;
 
 	index = 0;
-	while (src[index] != '\0')
+	while (str[index] != '\0')
 	{
-		dest[index] = src[index];
+		write(1, &str[index], 1);
 		index++;
 	}
-	dest[index] = '\0';
-	return (dest);
 }
 
-/*
 int	main(void)
 {
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char	str[] = "Hola mundo!";
 
-	ft_strcpy(dest,og);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	ft_putstr(str);
 }
-*/

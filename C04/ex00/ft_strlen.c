@@ -1,42 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rcenteno <rcenteno@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 13:43:10 by rcenteno          #+#    #+#             */
-/*   Updated: 2024/05/31 10:52:17 by rcenteno         ###   ########.fr       */
+/*   Created: 2024/05/30 14:01:53 by rcenteno          #+#    #+#             */
+/*   Updated: 2024/06/03 17:43:15 by rcenteno         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*
 #include <stdio.h>
-*/
 
-char	*ft_strcpy(char *dest, char *src)
+int	ft_strlen(char *str)
 {
-	int	index;
+	int	counter;
 
-	index = 0;
-	while (src[index] != '\0')
+	counter = 0;
+	while (*str != '\0')
 	{
-		dest[index] = src[index];
-		index++;
+		str++;
+		counter++;
 	}
-	dest[index] = '\0';
-	return (dest);
+	return (counter);
 }
 
-/*
 int	main(void)
 {
-	char	og[] = "klk mmgv";
-	char	dest[50];
+	char str[] = "Hola mundo!";
 
-	ft_strcpy(dest,og);
-
-	printf("Original: %s\n", og);
-	printf("Copia: %s\n", dest);
+	printf("%d", ft_strlen(str));
 }
-*/
